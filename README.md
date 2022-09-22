@@ -5,6 +5,7 @@ Projeto de conclusão de curso do programa Construdelas (Bootcamp promovido pela
 - BD:SQLite
 - Ao rodar a aplicação as migrações de criação das tabelas e inserção de dados teste serão executadas.
 - Endpoints: 
+           
            Clientes: POST, DELETE, LISTAR POR ID, LISTAR TODOS, LISTAR PEDIDOS DO CLIENTE
            
            Produtos: POST, DELETE, LISTAR POR ID, LISTAR TODOS
