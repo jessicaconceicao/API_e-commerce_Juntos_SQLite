@@ -82,8 +82,7 @@ namespace API_Juntos.Application.Mappings
                     .ForMember(dest => dest.DataPedido, fonte => fonte.MapFrom(src => src.DataPedido))
                     .ForMember(dest => dest.Cliente, fonte => fonte.MapFrom(src => src.Cliente))
                     .ForMember(dest => dest.Produtos, fonte => fonte.MapFrom(src => src.ProdutosDoPedido));
-            
-            //tentando listar produto por cliente (??????)
+           
             CreateMap<Pedido, ListarPedidosPorClienteResponse>()
                     .ForMember(dest => dest.DataPedido, fonte => fonte.MapFrom(src => src.DataPedido))
                     .ForMember(dest => dest.Cliente, fonte => fonte.MapFrom(src => src.Cliente))
