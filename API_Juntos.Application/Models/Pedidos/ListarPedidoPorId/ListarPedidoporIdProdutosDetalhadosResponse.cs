@@ -6,7 +6,7 @@
         public string NomeProduto { get; set; }
         public decimal ValorUnitario { get; set; }
         public int Quantidade { get; set; }
-        public int totalParcial { get; set; }
+        public decimal totalParcial { get; set; }
 
     }
 }

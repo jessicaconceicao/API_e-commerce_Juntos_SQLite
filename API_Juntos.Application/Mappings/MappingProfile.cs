@@ -76,7 +76,7 @@ namespace API_Juntos.Application.Mappings
                 .ForMember(dest => dest.NomeProduto, fonte => fonte.MapFrom(src => src.Produto.Nome))
                 .ForMember(dest => dest.Quantidade, fonte => fonte.MapFrom(src => src.Quantidade))
                 .ForMember(dest => dest.ValorUnitario, fonte => fonte.MapFrom(src => src.Produto.Valor))
-                .ForMember(dest => dest.totalParcial, fonte => fonte.MapFrom(src => src.ValorTotal)); //a variável ta recebendo o valor mas passando pro response zerada
+                .ForMember(dest => dest.totalParcial, fonte => fonte.MapFrom(src => src.ValorTotal)); 
 
             CreateMap<Pedido, ListarPedidoPorIdResponse>()
                     .ForMember(dest => dest.DataPedido, fonte => fonte.MapFrom(src => src.DataPedido))
