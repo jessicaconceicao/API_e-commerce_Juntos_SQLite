@@ -48,7 +48,8 @@ namespace API_Juntos.Infra.Migrations
             migrationBuilder.Sql("INSERT INTO produtos values (15,'Tinta PVA Standard', '35MR54', '6 meses', 18.00, 'L', 45.00, 20);");
             migrationBuilder.Sql("INSERT INTO produtos values (16,'Tinta esmalte Standard', '35MR54', '6 meses', 3.60, 'L', 45.00, 20);");
             migrationBuilder.Sql("INSERT INTO produtos values (17,'Weber.Guard Proteção Antipichação', '2157RA', '12 meses', 3.6, 'L', 48.90, 15);");
-            migrationBuilder.Sql("INSERT INTO produtos values (18,'Adesivo Colamúlti', '35BA45', '24 meses', 2.8, 'kg', 22.90, 20);");
+            migrationBuilder.Sql("INSERT INTO produtos values (18,'Adesivo Colamúlti', '35BA45', '24 meses', 2.8, 'kg', 20.00, 200);");
+            migrationBuilder.Sql("INSERT INTO produtos values (18,'Adesivo Colamúlti', '35BA45', '24 meses', 1.4, 'kg', 10.00, 10);");
             
             
             migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(1,200,'2022-08-31',1);");
@@ -60,6 +61,33 @@ namespace API_Juntos.Infra.Migrations
             migrationBuilder.Sql("INSERT INTO PRODUTOSDOSPEDIDOS VALUES(3,33,0,2,3);");
             migrationBuilder.Sql("INSERT INTO PRODUTOSDOSPEDIDOS VALUES(4,11,0,2,2);");
             migrationBuilder.Sql("INSERT INTO PRODUTOSDOSPEDIDOS VALUES(5,3,0,3,1);");
+
+            
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(1,30,'2022-10-10',11);");
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(2,30,'2022-05-10',12);");
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(3,30,'2021-08-10',13);");
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(4,30,'2022-04-10',14);");
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(5,30,'2022-03-09',15);");
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(6,30,'2022-08-10',1);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(7,30,'2022-09-10',2);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(8,30,'2021-08-12',3);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(9,30,'2022-04-10',4);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(10,30,'2022-06-11',5);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(11,30,'2022-08-10',6);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(12,30,'2022-06-10',7);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(13,30,'2020-08-10',8);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(14,30,'2021-08-11',9);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(15,30,'2022-08-11',10);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(16,30,'2022-10-10',11);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(17,30,'2022-05-10',12);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(18,30,'2021-08-10',13);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(19,30,'2022-04-10',14);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(20,30,'2022-03-09',15);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(21,30,'2021-03-10',16);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(22,30,'2022-05-12',17);"); 
+            migrationBuilder.Sql("INSERT INTO PEDIDOS VALUES(23,30,'2021-03-11',18);"); 
+
+            migrationBuilder.Sql("INSERT INTO PRODUTOSDOSPEDIDOS VALUES(6,3,30,1,18);");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

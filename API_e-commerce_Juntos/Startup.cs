@@ -3,6 +3,7 @@ using API_Juntos.Application.Models.Cliente.ExcluirCliente;
 using API_Juntos.Application.Models.Cliente.InserirCliente;
 using API_Juntos.Application.Models.Cliente.ListarClientePorId;
 using API_Juntos.Application.Models.Cliente.ListarClientes;
+using API_Juntos.Application.Models.Clientes.Listar_pedidos_por_cliente;
 using API_Juntos.Application.Models.Pedidos.ExcluirPedidos;
 using API_Juntos.Application.Models.Pedidos.InserirPedido;
 using API_Juntos.Application.Models.Pedidos.ListarPedidoPorId;
@@ -46,6 +47,8 @@ namespace API_e_commerce_Juntos
             services.AddTransient<IClienteRepository, ClienteRepository>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();
+
+            services.AddTransient<IUseCaseAsync<int, List<ListarPedidosPorClienteResponse>>, ListarPedidosPorClienteUseCase > ();
 
             services.AddTransient<IUseCaseAsync<InserirClienteRequest, InserirClienteResponse>, InserirClienteUseCase>();
             services.AddTransient<IUseCaseAsync<ExcluirClienteRequest, ExcluirClienteResponse>, ExcluirClienteUseCase>();

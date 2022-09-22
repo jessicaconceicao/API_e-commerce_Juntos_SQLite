@@ -2,6 +2,7 @@
 using API_Juntos.Application.Models.Cliente.InserirCliente;
 using API_Juntos.Application.Models.Cliente.ListarClientePorId;
 using API_Juntos.Application.Models.Cliente.ListarClientes;
+using API_Juntos.Application.Models.Clientes.Listar_pedidos_por_cliente;
 using API_Juntos.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -17,16 +18,19 @@ namespace API_e_commerce_Juntos.Controllers
         private readonly IUseCaseAsync<ExcluirClienteRequest, ExcluirClienteResponse> _useCaseExcluir;
         private readonly IUseCaseAsync<int, ListarClientePorIdResponse> _useCaseListarPorId;
         private readonly IUseCaseAsync<ListarClientesRequest, List<ListarClientesResponse>> _useCaseListarUsuarios;
+        private readonly IUseCaseAsync<int, List<ListarPedidosPorClienteResponse>> _useCaseListarPedidosPorCliente;
 
         public ClienteController(IUseCaseAsync<InserirClienteRequest, InserirClienteResponse> useCaseInserir,
             IUseCaseAsync<ExcluirClienteRequest, ExcluirClienteResponse> useCaseExcluir,
             IUseCaseAsync<int, ListarClientePorIdResponse> useCaseListarPorId,
-            IUseCaseAsync<ListarClientesRequest, List<ListarClientesResponse>> useCaseListarUsuarios)
+            IUseCaseAsync<ListarClientesRequest, List<ListarClientesResponse>> useCaseListarUsuarios,
+            IUseCaseAsync<int, List<ListarPedidosPorClienteResponse>> useCaseListarPedidosPorCliente)
         {
             _useCaseInserir = useCaseInserir;
             _useCaseExcluir = useCaseExcluir;
             _useCaseListarPorId = useCaseListarPorId;
             _useCaseListarUsuarios = useCaseListarUsuarios;
+            _useCaseListarPedidosPorCliente = useCaseListarPedidosPorCliente;
 
         }
 
@@ -60,6 +64,13 @@ namespace API_e_commerce_Juntos.Controllers
         {
             return await _useCaseListarUsuarios.ExecuteAsync(request);
         }
-
+        
+        [HttpGet("listar_pedidos_cliente")]
+        
+        public async Task<ActionResult<List<ListarPedidosPorClienteResponse>>> GetCliente(int cliente)
+        {
+            return await _useCaseListarPedidosPorCliente.ExecuteAsync(cliente);
+        }
+        
     }
 }

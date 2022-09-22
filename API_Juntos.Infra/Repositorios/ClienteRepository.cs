@@ -45,5 +45,17 @@ namespace API_Juntos.Infra.Repositorios
                 .AsNoTracking()
                 .ToListAsync();
         }
+        
+        public async Task<IEnumerable<Pedido>> ListarTodosOsPedidos(int id)
+        {
+            return await  _context
+                 .Pedidos.Where(x => x.IdCliente == id)
+                 .Include(i => i.ProdutosDoPedido)
+                    .ThenInclude(i => i.Produto)
+                 .AsNoTracking()
+                 .ToListAsync(); 
+
+            
+        }
     }
 }

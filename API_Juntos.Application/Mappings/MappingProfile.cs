@@ -1,6 +1,7 @@
 ﻿using API_Juntos.Application.Models.Cliente.InserirCliente;
 using API_Juntos.Application.Models.Cliente.ListarClientePorId;
 using API_Juntos.Application.Models.Cliente.ListarClientes;
+using API_Juntos.Application.Models.Clientes.Listar_pedidos_por_cliente;
 using API_Juntos.Application.Models.Pedidos.InserirPedido;
 using API_Juntos.Application.Models.Pedidos.ListarPedidoPorId;
 using API_Juntos.Application.Models.Pedidos.ListarPedidos;
@@ -75,14 +76,15 @@ namespace API_Juntos.Application.Mappings
                 .ForMember(dest => dest.NomeProduto, fonte => fonte.MapFrom(src => src.Produto.Nome))
                 .ForMember(dest => dest.Quantidade, fonte => fonte.MapFrom(src => src.Quantidade))
                 .ForMember(dest => dest.ValorUnitario, fonte => fonte.MapFrom(src => src.Produto.Valor))
-                .ForMember(dest => dest.totalParcial, fonte => fonte.MapFrom(src => src.ValorTotal)); 
-
-            //CreateMap<ProdutosDoPedido, ListarPedidoporIdProdutosDetalhadosResponse>()
-            //    .ForMember(dest => dest.NomeProduto, fonte => fonte.MapFrom(src => src.Produto.Nome))
-            //    .ForMember(dest => dest.ValorUnitario, fonte => fonte.MapFrom(src => src.Produto.Valor))
-            //    .ForMember(dest => dest.totalParcial, fonte => fonte.MapFrom(src => src.ValorTotal));
+                .ForMember(dest => dest.totalParcial, fonte => fonte.MapFrom(src => src.ValorTotal)); //a variável ta recebendo o valor mas passando pro response zerada
 
             CreateMap<Pedido, ListarPedidoPorIdResponse>()
+                    .ForMember(dest => dest.DataPedido, fonte => fonte.MapFrom(src => src.DataPedido))
+                    .ForMember(dest => dest.Cliente, fonte => fonte.MapFrom(src => src.Cliente))
+                    .ForMember(dest => dest.Produtos, fonte => fonte.MapFrom(src => src.ProdutosDoPedido));
+            
+            //tentando listar produto por cliente (??????)
+            CreateMap<Pedido, ListarPedidosPorClienteResponse>()
                     .ForMember(dest => dest.DataPedido, fonte => fonte.MapFrom(src => src.DataPedido))
                     .ForMember(dest => dest.Cliente, fonte => fonte.MapFrom(src => src.Cliente))
                     .ForMember(dest => dest.Produtos, fonte => fonte.MapFrom(src => src.ProdutosDoPedido));
