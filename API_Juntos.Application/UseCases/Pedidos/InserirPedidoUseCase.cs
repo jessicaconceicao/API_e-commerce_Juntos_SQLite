@@ -39,8 +39,7 @@ namespace API_Juntos.Application.UseCases.Pedidos
 
             var produtosDosPedidos = new List<ProdutosDoPedido>();
 
-            //foreach (var produtos in request.Produtos)
-            //    produtosDosPedidos.Add(new ProdutosDoPedido(produtos.Quantidade, produtos.IdProduto));
+           
             foreach (var produtos in request.Produtos)
             {
                 var produtoSolicitado = await _produtoRepository.ListarPorId(produtos.IdProduto);
@@ -50,12 +49,7 @@ namespace API_Juntos.Application.UseCases.Pedidos
 
             decimal valorPedido = 0;
 
-            //foreach (var item in produtosDosPedidos)
-            //{
-            //    var produtoSolicitado = await _produtoRepository.ListarPorId(item.IdProduto); 
-            //    var valorTotalProduto = produtoSolicitado.Valor * item.Quantidade;  
-            //    valorPedido += valorTotalProduto; 
-            //}
+           
             foreach (var item in produtosDosPedidos)
             {
                 valorPedido += item.ValorTotal;

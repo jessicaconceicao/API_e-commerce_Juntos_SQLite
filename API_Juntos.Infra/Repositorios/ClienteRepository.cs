@@ -52,6 +52,7 @@ namespace API_Juntos.Infra.Repositorios
                  .Pedidos.Where(x => x.IdCliente == id)
                  .Include(i => i.ProdutosDoPedido)
                     .ThenInclude(i => i.Produto)
+                 .Include(i => i.Cliente)                    
                  .AsNoTracking()
                  .ToListAsync(); 
 

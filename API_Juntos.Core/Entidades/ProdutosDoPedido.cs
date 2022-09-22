@@ -4,11 +4,6 @@ namespace API_Juntos.Core.Entidades
 {
     public class ProdutosDoPedido
     {
-        //public ProdutosDoPedido(int quantidade, int idProduto)
-        //{
-        //    Quantidade = quantidade;
-        //    IdProduto = idProduto;
-        //}
         public ProdutosDoPedido(int quantidade, int idProduto, decimal valorTotal)
         {
             Quantidade = quantidade;
