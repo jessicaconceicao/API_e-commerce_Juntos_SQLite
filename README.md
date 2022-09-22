@@ -5,11 +5,14 @@ Projeto de conclusão de curso do programa Construdelas (Bootcamp promovido pela
 - BD:SQLite
 - Ao rodar a aplicação as migrações de criação das tabelas e inserção de dados teste serão executadas.
 - Endpoints: 
-           Clientes: POST, DELETE, LISTAR POR ID, LISTAR TODOS
+           Clientes: POST, DELETE, LISTAR POR ID, LISTAR TODOS, LISTAR PEDIDOS DO CLIENTE
+           
            Produtos: POST, DELETE, LISTAR POR ID, LISTAR TODOS
+           
            Pedidos: POST, DELETE, LISTAR POR ID, LISTAR TODOS
 
 
+_________________________
 Comando utilizado para gerar as Migrations(executados na pasta raiz do projeto):
 
 Tabelas: dotnet ef --startup-project ./API_e-commerce_Juntos/API_e-commerce_Juntos.csproj  migrations add Tabelas -p ./API_Juntos.Infra/API_Juntos.Infra.csproj
