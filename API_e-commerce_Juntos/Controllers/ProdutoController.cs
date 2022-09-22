@@ -14,21 +14,18 @@ namespace API_e_commerce_Juntos.Controllers
     public class ProdutoController : ControllerBase
     {
         private readonly IUseCaseAsync<InserirProdutoRequest, InserirProdutoResponse> _useCaseInserir;
-        //private readonly IUseCaseAsync<AtualizarProdutoRequest, AtualizarProdutoResponse> _useCaseAtualizar;
         private readonly IUseCaseAsync<ExcluirProdutoRequest, ExcluirProdutoResponse> _useCaseExcluir;
         private readonly IUseCaseAsync<int, ListarProdutoPorIdResponse> _useCaseListarPorId;
         private readonly IUseCaseAsync<ListarProdutosRequest, List<ListarProdutosResponse>> _useCaseListarProdutos;
 
 
         public ProdutoController(IUseCaseAsync<InserirProdutoRequest, InserirProdutoResponse> useCaseInserir,
-            /* IUseCaseAsync<AtualizarProdutoRequest, AtualizarProdutoResponse> useCaseAtualizar,*/
             IUseCaseAsync<ExcluirProdutoRequest, ExcluirProdutoResponse> useCaseExcluir,
             IUseCaseAsync<int, ListarProdutoPorIdResponse> useCaseListarPorId,
             IUseCaseAsync<ListarProdutosRequest, List<ListarProdutosResponse>> useCaseListarProdutos)
         {
 
             _useCaseInserir = useCaseInserir;
-            //_useCaseAtualizar = useCaseAtualizar;
             _useCaseExcluir = useCaseExcluir;
             _useCaseListarPorId = useCaseListarPorId;
             _useCaseListarProdutos = useCaseListarProdutos;
@@ -40,14 +37,7 @@ namespace API_e_commerce_Juntos.Controllers
             return await _useCaseInserir.ExecuteAsync(request);
         }
 
-        /*
-          SE FOR DELETAR, APAGAR DA ID (IMPLEMENTAÇÃO CONTROLLER  E STARTUP)
-        [HttpPut("atualizacao_produto{id:int}")] 
-        public async Task<ActionResult<AtualizarProdutoResponse>> Put([FromRoute] int id) //Seria a melhor maneira?
-        {
-            return await _useCaseAtualizar.ExecuteAsync(new AtualizarProdutoRequest() { Id = id }); 
-        }
-        */
+        
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<ExcluirProdutoResponse>> Delete([FromRoute] int id)
         {

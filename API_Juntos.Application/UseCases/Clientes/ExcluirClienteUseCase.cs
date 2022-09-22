@@ -19,7 +19,7 @@ namespace API_Juntos.Application.UseCases.Clientes
             var cliente = await _repository.ListarPorId(request.IdCliente);
             await _repository.Excluir(cliente);
             var clienteResponse = new ExcluirClienteResponse();
-            clienteResponse.Messagem = "Cliente excluído do sistema.";
+            clienteResponse.Mensagem = "Cliente excluído do sistema.";
             return clienteResponse;
 
         }

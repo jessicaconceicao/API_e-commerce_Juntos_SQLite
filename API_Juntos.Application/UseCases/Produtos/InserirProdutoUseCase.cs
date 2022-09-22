@@ -42,7 +42,7 @@ namespace API_Juntos.Application.UseCases.Produtos
             await _repository.Inserir(produto);
 
             var produtoResponse = new InserirProdutoResponse();
-            produtoResponse.Messagem = "Produto inserido com sucesso!";
+            produtoResponse.Mensagem = "Produto inserido com sucesso!";
             return produtoResponse;
 
         }

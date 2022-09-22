@@ -1,7 +1,4 @@
-﻿using API_Juntos.Application.Models.Cliente.InserirCliente;
-using FluentValidation;
-
-namespace API_Juntos.Application.Models.Cliente.InserirCliente
+﻿namespace API_Juntos.Application.Models.Cliente.InserirCliente
 {
     public class InserirClienteRequest
     {

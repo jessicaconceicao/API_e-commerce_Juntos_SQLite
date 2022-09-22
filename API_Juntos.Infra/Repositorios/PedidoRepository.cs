@@ -19,10 +19,6 @@ namespace API_Juntos.Infra.Repositorios
         }
 
 
-        /*public async Task Atualizar(Pedido obj)
-        {
-            throw new NotImplementedException();
-        }*/
         public async Task Excluir(Pedido obj)
         {
             _context.Pedidos.Remove(obj);

@@ -18,7 +18,7 @@ namespace API_Juntos.Application.UseCases.Produtos
             var produto = await _repository.ListarPorId(request.IdProduto);
             await _repository.Excluir(produto);
             var produtoResponse = new ExcluirProdutoResponse();
-            produtoResponse.Messagem = "Produto excluído do sistema.";
+            produtoResponse.Mensagem = "Produto excluído do sistema.";
             return produtoResponse;
         }
     }

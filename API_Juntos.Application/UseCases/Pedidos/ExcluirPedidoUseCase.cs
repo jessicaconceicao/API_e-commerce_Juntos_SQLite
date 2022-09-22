@@ -17,7 +17,7 @@ namespace API_Juntos.Application.UseCases.Pedidos
             var pedido = await _repository.ListarPorId(request.IdPedido);
             await _repository.Excluir(pedido);
             var pedidoResponse = new ExcluirPedidoResponse();
-            pedidoResponse.Messagem = "Pedido excluído do sistema.";
+            pedidoResponse.Mensagem = "Pedido excluído do sistema.";
             return pedidoResponse;
         }
     }

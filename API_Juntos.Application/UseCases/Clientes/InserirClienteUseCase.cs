@@ -41,7 +41,7 @@ namespace API_Juntos.Application.UseCases.Clientes
             await _repository.Inserir(cliente);
 
             var clienteResponse = new InserirClienteResponse();
-            clienteResponse.Messagem = "Cliente inserido com sucesso!";
+            clienteResponse.Mensagem = "Cliente inserido com sucesso!";
             return clienteResponse;
 
         }

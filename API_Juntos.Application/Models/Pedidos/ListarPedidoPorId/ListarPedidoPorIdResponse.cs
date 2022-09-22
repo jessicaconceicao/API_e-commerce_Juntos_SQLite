@@ -1,5 +1,4 @@
-﻿using API_Juntos.Core.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace API_Juntos.Application.Models.Pedidos.ListarPedidoPorId

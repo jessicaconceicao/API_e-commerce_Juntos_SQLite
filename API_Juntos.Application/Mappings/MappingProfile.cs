@@ -9,7 +9,6 @@ using API_Juntos.Application.Models.Produtos.ListarProdutoPorId;
 using API_Juntos.Application.Models.Produtos.ListarProdutos;
 using API_Juntos.Core.Entidades;
 using AutoMapper;
-using System;
 
 namespace API_Juntos.Application.Mappings
 {
@@ -68,9 +67,6 @@ namespace API_Juntos.Application.Mappings
                 .ForMember(dest => dest.Valor, fonte => fonte.MapFrom(src => src.Valor))
                 .ForMember(dest => dest.QuantidadeEstoque, fonte => fonte.MapFrom(src => src.QuantidadeEstoque));
 
-            CreateMap<ListarPedidoPorIdRequest, Pedido>()
-                    .ForMember(dest => dest.IdPedido, fonte => fonte.MapFrom(src => src.IdPedido)); //mantém?
-
             CreateMap<Cliente, ListarPedidoPorIdClienteResponse>()
                 .ForMember(dest => dest.Nome, fonte => fonte.MapFrom(src => src.Nome))
                 .ForMember(dest => dest.CPF, fonte => fonte.MapFrom(src => src.CPF));
@@ -78,14 +74,13 @@ namespace API_Juntos.Application.Mappings
             CreateMap<ProdutosDoPedido, ListarPedidoporIdProdutosDetalhadosResponse>()
                 .ForMember(dest => dest.NomeProduto, fonte => fonte.MapFrom(src => src.Produto.Nome))
                 .ForMember(dest => dest.Quantidade, fonte => fonte.MapFrom(src => src.Quantidade))
-                .ForMember(dest => dest.ValorUnitario, fonte => fonte.MapFrom(src => src.Produto.Valor)); //acessa através da chave estrangeira e obtém o valor do produto
+                .ForMember(dest => dest.ValorUnitario, fonte => fonte.MapFrom(src => src.Produto.Valor))
+                .ForMember(dest => dest.totalParcial, fonte => fonte.MapFrom(src => src.ValorTotal)); 
 
-            CreateMap<Pedido, ListarPedidoPorIdResponse>()
-               .ForMember(dest => dest.Produtos, fonte => fonte.MapFrom(src => src.ProdutosDoPedido));//mantém?         
-
-            CreateMap<ProdutosDoPedido, ListarPedidoporIdProdutosDetalhadosResponse>()
-                .ForMember(dest => dest.NomeProduto, fonte => fonte.MapFrom(src => src.Produto.Nome))
-                .ForMember(dest => dest.ValorUnitario, fonte => fonte.MapFrom(src => src.Produto.Valor));
+            //CreateMap<ProdutosDoPedido, ListarPedidoporIdProdutosDetalhadosResponse>()
+            //    .ForMember(dest => dest.NomeProduto, fonte => fonte.MapFrom(src => src.Produto.Nome))
+            //    .ForMember(dest => dest.ValorUnitario, fonte => fonte.MapFrom(src => src.Produto.Valor))
+            //    .ForMember(dest => dest.totalParcial, fonte => fonte.MapFrom(src => src.ValorTotal));
 
             CreateMap<Pedido, ListarPedidoPorIdResponse>()
                     .ForMember(dest => dest.DataPedido, fonte => fonte.MapFrom(src => src.DataPedido))

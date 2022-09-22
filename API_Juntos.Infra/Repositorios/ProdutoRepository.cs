@@ -17,21 +17,16 @@ namespace API_Juntos.Infra.Repositorios
             _context = context;
         }
 
-        /* public async Task Atualizar(Produto obj)
-         {
-             throw new NotImplementedException();
-         }*/
-
         public async Task Excluir(Produto obj)
         {
             _context.Remove(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public async Task Inserir(Produto obj)
         {
             _context.Add(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public async Task<Produto> ListarPorId(int id)

@@ -2,6 +2,6 @@
 {
     public class ExcluirClienteResponse
     {
-        public string Messagem { get; set; }
+        public string Mensagem { get; set; }
     }
 }

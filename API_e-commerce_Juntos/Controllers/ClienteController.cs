@@ -14,19 +14,16 @@ namespace API_e_commerce_Juntos.Controllers
     public class ClienteController : ControllerBase
     {
         public readonly IUseCaseAsync<InserirClienteRequest, InserirClienteResponse> _useCaseInserir;
-        // public readonly IUseCaseAsync<AtualizarClienteRequest, AtualizarClienteResponse> _useCaseAtualizar;
         private readonly IUseCaseAsync<ExcluirClienteRequest, ExcluirClienteResponse> _useCaseExcluir;
         private readonly IUseCaseAsync<int, ListarClientePorIdResponse> _useCaseListarPorId;
         private readonly IUseCaseAsync<ListarClientesRequest, List<ListarClientesResponse>> _useCaseListarUsuarios;
 
         public ClienteController(IUseCaseAsync<InserirClienteRequest, InserirClienteResponse> useCaseInserir,
-            /* IUseCaseAsync<AtualizarClienteRequest, AtualizarClienteResponse> useCaseAtualizar,*/
             IUseCaseAsync<ExcluirClienteRequest, ExcluirClienteResponse> useCaseExcluir,
             IUseCaseAsync<int, ListarClientePorIdResponse> useCaseListarPorId,
             IUseCaseAsync<ListarClientesRequest, List<ListarClientesResponse>> useCaseListarUsuarios)
         {
             _useCaseInserir = useCaseInserir;
-            //_useCaseAtualizar = useCaseAtualizar;
             _useCaseExcluir = useCaseExcluir;
             _useCaseListarPorId = useCaseListarPorId;
             _useCaseListarUsuarios = useCaseListarUsuarios;
@@ -39,12 +36,7 @@ namespace API_e_commerce_Juntos.Controllers
             return await _useCaseInserir.ExecuteAsync(request);
 
         }
-        //SE FOR DELETAR, APAGAR DA ID (IMPLEMENTAÇÃO CONTROLLER  E STARTUP)
-        /*[HttpPut("atualizacao_usuario/{id:int}")]
-        public async Task<ActionResult<AtualizarClienteResponse>> Put([FromBody] AtualizarClienteRequest request) 
-        {
-            return await _useCaseAtualizar.ExecuteAsync(new AtualizarClienteRequest() { IdCliente = request.IdCliente }); //(NÃO ENTENDI MUITO BEM PORQUE SERIA DESTE MODO, AO INVÉS DE PASSAR UM REQUEST)
-        }*/
+       
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<ExcluirClienteResponse>> Delete([FromRoute] int id)

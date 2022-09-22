@@ -1,5 +1,4 @@
-﻿//using API_Juntos.Application.Models.Pedidos.AtualizarPedido;
-using API_Juntos.Application.Models.Pedidos.ExcluirPedidos;
+﻿using API_Juntos.Application.Models.Pedidos.ExcluirPedidos;
 using API_Juntos.Application.Models.Pedidos.InserirPedido;
 using API_Juntos.Application.Models.Pedidos.ListarPedidoPorId;
 using API_Juntos.Application.Models.Pedidos.ListarPedidos;
@@ -15,18 +14,15 @@ namespace API_e_commerce_Juntos.Controllers
     public class PedidoController : ControllerBase
     {
         private readonly IUseCaseAsync<InserirPedidoRequest, InserirPedidoResponse> _useCaseInserir;
-        //private readonly IUseCaseAsync<AtualizarPedidoRequest, AtualizarPedidoResponse> _useCaseAtualizar;
         private readonly IUseCaseAsync<ExcluirPedidoRequest, ExcluirPedidoResponse> _useCaseExcluir;
         private readonly IUseCaseAsync<int, ListarPedidoPorIdResponse> _useCaseListarPorId;
         private readonly IUseCaseAsync<ListarPedidosRequest, List<ListarPedidosResponse>> _useCaseListarPedidos;
         public PedidoController(IUseCaseAsync<InserirPedidoRequest, InserirPedidoResponse> useCaseInserir,
-             //IUseCaseAsync<AtualizarPedidoRequest, AtualizarPedidoResponse> useCaseAtualizar,
             IUseCaseAsync<ExcluirPedidoRequest, ExcluirPedidoResponse> useCaseExcluir,
             IUseCaseAsync<int, ListarPedidoPorIdResponse> useCaseListarPorId,
             IUseCaseAsync<ListarPedidosRequest, List<ListarPedidosResponse>> useCaseListarPedidos)
         {
             _useCaseInserir = useCaseInserir;
-            //_useCaseAtualizar = useCaseAtualizar;
             _useCaseExcluir = useCaseExcluir;
             _useCaseListarPorId = useCaseListarPorId;
             _useCaseListarPedidos = useCaseListarPedidos;
@@ -37,17 +33,8 @@ namespace API_e_commerce_Juntos.Controllers
         {
             return await _useCaseInserir.ExecuteAsync(request);
 
-            //var inserir = await _useCaseInserir.ExecuteAsync(request);
-            //return Ok(inserir);
-
         }
-        /* SE FOR DELETAR, APAGAR DA ID (IMPLEMENTAÇÃO CONTROLLER  E STARTUP)
-        [HttpPut("atualizacao_pedido/ {id:int}")]
-        public async Task<ActionResult<AtualizarPedidoResponse>> Put([FromRoute] int id)
-        {
-            return await _useCaseAtualizar.ExecuteAsync(new AtualizarPedidoRequest { Id = id });
-        }*/
-
+        
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<ExcluirPedidoResponse>> Delete([FromRoute] int id)
         {

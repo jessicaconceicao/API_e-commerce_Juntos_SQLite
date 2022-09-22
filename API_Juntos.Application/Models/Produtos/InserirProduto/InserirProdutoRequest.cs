@@ -1,7 +1,4 @@
-﻿using API_Juntos.Application.Models.Produtos.InserirProduto;
-using FluentValidation;
-
-namespace API_Juntos.Application.Models.Produtos.InserirProduto
+﻿namespace API_Juntos.Application.Models.Produtos.InserirProduto
 {
     public class InserirProdutoRequest
     {

@@ -21,7 +21,7 @@ namespace API_Juntos.Application.UseCases.Produtos
 
             var produto = await _repository.ListarPorId(request);
 
-            var retorno = (ListarProdutoPorIdResponse)null;
+            ListarProdutoPorIdResponse retorno = null;
 
             if (produto != null)
             {
@@ -29,18 +29,6 @@ namespace API_Juntos.Application.UseCases.Produtos
             }
 
             return await Task.FromResult(retorno);
-
-            //qual mais adequado?
-            //var produto =  _repository.ListarPorId(request).Result;
-
-            //var retorno = (ListarProdutoPorIdResponse)null;
-
-            //if (produto != null)
-            //{
-            //    retorno = _mapper.Map<ListarProdutoPorIdResponse>(produto);
-            //}
-
-            //return await Task.FromResult(retorno);
 
         }
     }
