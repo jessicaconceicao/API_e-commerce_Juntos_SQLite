@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Juntos.Infra.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220921133510_tabelas")]
+    [Migration("20220922150045_tabelas")]
     partial class tabelas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Juntos.Infra.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220921171423_Inserts")]
-    partial class Inserts
+    [Migration("20220922160731_Insert")]
+    partial class Insert
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
